@@ -1,0 +1,27 @@
+{
+  "folders": [
+    {
+      "path": ".",
+    },
+  ],
+  "settings": {
+    "editor.fontSize": 16,
+    "editor.codeActionsOnSave": {},
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Generate",
+        "command": "npm run generate",
+        "type": "shell",
+        "args": [],
+      },
+    ],
+  },
+}

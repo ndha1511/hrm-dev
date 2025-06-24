@@ -1,0 +1,24 @@
+{
+    "recommendations": [
+        "ms-azuretools.vscode-docker",
+        "cweijan.vscode-postgresql-client2",
+        "gruntfuggly.todo-tree",
+        "typespec.typespec-vscode",
+        "vscjava.vscode-maven",
+        "vscjava.vscode-java-debug",
+        "vscjava.vscode-java-pack",
+        "redhat.java",
+        "vscjava.vscode-java-dependency",
+        "vscjava.vscode-spring-boot-dashboard",
+        "vmware.vscode-boot-dev-pack",
+        "vmware.vscode-spring-boot",
+        "vscjava.vscode-java-test",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "PKief.material-icon-theme",
+        "dsznajder.es7-react-js-snippets",
+        "vivaxy.vscode-conventional-commits",
+        "eamodio.gitlens",
+        "mhutchie.git-graph"
+    ]
+}

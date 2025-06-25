@@ -15,8 +15,8 @@ fs.readdirSync(inputDir).forEach((file) => {
       },
       output: {
         mode: "split",
-        target: `src/generated/endpoints/${name}/${name}.ts`,
-        schemas: `src/generated/schemas/${name}`,
+        target: `./src/generated/endpoints/${name}/${name}.ts`,
+        schemas: `./src/generated/schemas/${name}`,
         client: "react-query",
         baseUrl: "http://localhost:8080/",
         mock: {

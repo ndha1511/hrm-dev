@@ -3,6 +3,9 @@
     {
       "path": ".",
     },
+    {
+      "path": "../docs",
+    },
   ],
   "settings": {
     "editor.fontSize": 14,
@@ -12,16 +15,30 @@
     "[typescriptreact]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode",
     },
-    "workbench.iconTheme": "material-icon-theme"
+    "workbench.iconTheme": "material-icon-theme",
   },
   "tasks": {
     "version": "2.0.0",
     "tasks": [
       {
         "label": "Generate",
-        "command": "npm run generate",
         "type": "shell",
+        "command": "npm run generate",
         "args": [],
+        "options": {
+          "cwd": "${workspaceFolder}",
+        },
+        "problemMatcher": [],
+      },
+      {
+        "label": "Start",
+        "type": "shell",
+        "command": "npm run dev",
+        "args": [],
+        "options": {
+          "cwd": "${workspaceFolder}",
+        },
+        "problemMatcher": [],
       },
     ],
   },

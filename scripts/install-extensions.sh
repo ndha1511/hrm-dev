@@ -1,7 +1,5 @@
 #!/bin/bash
 
-npm install -g @typespec/compiler
-
 EXTENSIONS_FILE=".vscode/extensions.json"
 
 

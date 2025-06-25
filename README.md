@@ -58,22 +58,25 @@ foreach ($shortcut in $shortcuts) {
 # end
 ```
 
-
 #### install wsl
 
 ```powershell
 wsl --unregister [distribution name]
 ```
+
 ```powershell
 wsl --install Ubuntu-24.04
 ```
+
 ```powershell
 Restart-Computer
 ```
+
 ```powershell
 wsl --set-default Ubuntu-24.04
 wsl --update
 ```
+
 ```powershell
 $wslConfigPath = "$env:USERPROFILE\.wslconfig"
 
@@ -84,13 +87,15 @@ dnsTunneling=true
 
 $wslConfigContent | Out-File -FilePath $wslConfigPath -Encoding utf8
 ```
+
 ```powershell
 wsl
 ```
+
 Since a username and password are required, please set them as follows:
-| username   | password   |
+| username | password |
 | ---------- | ---------- |
-| pengu      | (any value) |
+| pengu | (any value) |
 
 ```bash
 sudo tee /etc/wsl.conf > /dev/null <<EOF
@@ -98,6 +103,7 @@ sudo tee /etc/wsl.conf > /dev/null <<EOF
 systemd=true
 EOF
 ```
+
 ```bash
 exit
 ```
@@ -134,24 +140,26 @@ nvm install 22
 ```
 
 #### install mvn jdk
+
 ```bash
-apt install maven -y
-apt install openjdk-21-jre-headless -y
+sudo apt install maven -y
+sudo apt install openjdk-21-jre-headless -y
 ```
 
 #### github login
 
-```
+```bash
 BROWSER=/mnt/c/Windows/explorer.exe gh auth login
 ```
 
-###### download source code
+#### download source code
 
 ```bash
 cd
 mkdir hrm
 cd hrm
 ```
+
 ```bash
 git clone https://github.com/ndha1511/hrm-dev.git .
 
@@ -161,8 +169,9 @@ git clone https://github.com/ndha1511/hrm-dev.git .
 
 #### open workspace
 
-```
-code "/root/hrm-system/hrm-system.code-workspace"
+```bash
+cd
+code "/hrm/hrm.code-workspace"
 ```
 
-##### Run task -> Setup Environment
+![alt text](./docs/images/image.png)

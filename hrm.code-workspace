@@ -4,17 +4,18 @@
       "path": "."
     }
   ],
+  "settings": {
+    "workbench.iconTheme": "material-icon-theme"
+  },
   "tasks": {
     "version": "2.0.0",
     "tasks": [
       {
-        "label": "Setup Environment",
-        "command": "chmod +x ./scripts/setup.sh && ./scripts/setup.sh",
+        "label": "Install Extensions",
+        "command": "chmod +x ./scripts/install-extensions.sh && ./scripts/install-extensions.sh",
         "type": "shell",
         "args": [],
-        "problemMatcher": [
-          "$tsc"
-        ],
+        "problemMatcher": ["$tsc"],
         "presentation": {
           "reveal": "always"
         },

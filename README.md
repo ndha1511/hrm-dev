@@ -44,7 +44,7 @@ $shortcuts = @(
     @{ Name = "hrm.lnk"; Arguments = "/c wsl code ~/hrm/hrm.code-workspace --profile hrm" },
     @{ Name = "hrm-front.lnk"; Arguments = "/c wsl code ~/hrm/hrm-front/hrm-front.code-workspace --profile hrm-front" },
     @{ Name = "hrm-api.lnk"; Arguments = "/c wsl code ~/hrm/hrm-api/hrm-api.code-workspace --profile hrm-api" },
-    @{ Name = "openapi-typespec.lnk"; Arguments = "/c wsl code ~/hrm/openapi-typespec/openapi-typespec.code-workspace --profile openapi-typespec" },
+    @{ Name = "openapi-typespec.lnk"; Arguments = "/c wsl code ~/hrm/openapi-typespec/openapi-typespec.code-workspace --profile openapi-typespec" }
 )
 
 foreach ($shortcut in $shortcuts) {

@@ -28,6 +28,17 @@
         "presentation": {
           "reveal": "always"
         },
+      },
+      {
+        "label": "Create PR to Github",
+        "detail": "Create a pull request to the HRM repository on GitHub",
+        "command": "chmod +x ../scripts/create-pr.sh && ../scripts/create-pr.sh",
+        "type": "shell",
+        "args": [],
+        "problemMatcher": [],
+        "presentation": {
+          "reveal": "always"
+        }
       }
     ]
   }

@@ -12,6 +12,23 @@
     "editor.codeActionsOnSave": {},
     "editor.formatOnSave": true,
     "java.compile.nullAnalysis.mode": "automatic",
-    "workbench.iconTheme": "material-icon-theme"
+    "workbench.iconTheme": "material-icon-theme",
+    "java.configuration.updateBuildConfiguration": "interactive"
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Start",
+        "detail": "Start the HRM API",
+        "command": "chmod +x ./scripts/start.sh && ./scripts/start.sh",
+        "type": "shell",
+        "args": [],
+        "problemMatcher": [],
+        "presentation": {
+          "reveal": "always"
+        },
+      }
+    ]
   }
 }

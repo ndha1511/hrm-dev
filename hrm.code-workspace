@@ -5,21 +5,32 @@
     }
   ],
   "settings": {
-    "workbench.iconTheme": "material-icon-theme"
+    "workbench.iconTheme": "material-icon-theme",
+    "java.configuration.updateBuildConfiguration": "interactive",
   },
+  
   "tasks": {
     "version": "2.0.0",
     "tasks": [
       {
+        "label": "Setup Environtment",
+        "detail": "Setup the development environment for HRM project",
+        "command": "chmod +x ./scripts/setup.sh && ./scripts/setup.sh",
+        "type": "shell",
+        "args": [],
+        "problemMatcher": [],
+      },
+      {
         "label": "Install Extensions",
+        "detail": "Install VS Code extensions for the project",
         "command": "chmod +x ./scripts/install-extensions.sh && ./scripts/install-extensions.sh",
         "type": "shell",
         "args": [],
-        "problemMatcher": ["$tsc"],
+        "problemMatcher": [],
         "presentation": {
           "reveal": "always"
         },
-        "group": "build"
+        
       }
     ]
   }

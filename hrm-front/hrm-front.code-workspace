@@ -22,6 +22,7 @@
     "tasks": [
       {
         "label": "Generate",
+        "detail": "Generate API client",
         "type": "shell",
         "command": "npm run generate",
         "args": [],
@@ -32,6 +33,7 @@
       },
       {
         "label": "Start",
+        "detail": "Start the development server",
         "type": "shell",
         "command": "npm run dev",
         "args": [],

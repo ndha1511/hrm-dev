@@ -16,6 +16,12 @@
       "editor.defaultFormatter": "esbenp.prettier-vscode",
     },
     "workbench.iconTheme": "material-icon-theme",
+     "terminal.integrated.defaultProfile.windows": "WSL",
+    "terminal.integrated.profiles.windows": {
+      "WSL": {
+        "path": "wsl.exe"
+      }
+    }
   },
   "tasks": {
     "version": "2.0.0",

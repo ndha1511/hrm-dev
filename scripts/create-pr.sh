@@ -46,6 +46,8 @@ BRANCH_NAME=$(echo "$SELECTED" \
 
 ISSUE_NUMBER=$(echo "$SELECTED" | cut -d':' -f1)
 
+ISSUE_TITLE=$(echo "$SELECTED" | cut -d':' -f2- | xargs)
+
 LABELS=$(gh issue view "$ISSUE_NUMBER" --repo "$OWNER/$REPO" --json labels --jq '.labels[].name' | paste -sd "," -)
 
 git checkout -b "$BRANCH_NAME"
@@ -56,8 +58,8 @@ git push -u origin "$BRANCH_NAME"
 
 gh pr create \
   --repo "$OWNER/$REPO" \
-  --title "$BRANCH_NAME" \
+  --title "$ISSUE_TITLE" \
   --body "PR #$BRANCH_NAME" \
-  --head "$BRANCH_NAME" \
+  --head "$ISSUE_TITLE" \
   --assignee "$USERNAME" \
   ${LABELS:+--label "$LABELS"}

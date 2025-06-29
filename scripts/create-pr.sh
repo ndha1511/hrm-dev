@@ -59,7 +59,7 @@ git push -u origin "$BRANCH_NAME"
 gh pr create \
   --repo "$OWNER/$REPO" \
   --title "$ISSUE_TITLE" \
-  --body "PR #$BRANCH_NAME" \
-  --head "$ISSUE_TITLE" \
+  --body "Closes #$ISSUE_NUMBER" \
+  --head "$BRANCH_NAME" \
   --assignee "$USERNAME" \
   ${LABELS:+--label "$LABELS"}

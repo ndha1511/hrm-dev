@@ -34,5 +34,7 @@ jobs:
       - run: npm ci
       # generate OpenAPI client
       - run: npm run generate
+      # prettier and lint checks
+      - run: npm run lint
       - run: npm run build
       # TODO: add tests

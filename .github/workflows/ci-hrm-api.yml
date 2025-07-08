@@ -4,7 +4,7 @@ on:
   pull_request:
     types: [assigned]
     paths:
-      - "./hrm-api/**"
+      - "hrm-api/**"
       - ".github/workflows/ci-hrm-api.yml"
       - "!hrm-api/.vscode/**"
       - "!hrm-api/*.code-workspace"

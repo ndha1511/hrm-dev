@@ -23,6 +23,7 @@ public class AuthController {
         return authService.signIn(signInRequest);
     }
 
+    // Test CI check
     @PostMapping("/signUp")
     public AuthResponse signUp(@RequestBody SignUpRequest signUpRequest) throws Exception {
         return authService.signUp(signUpRequest);

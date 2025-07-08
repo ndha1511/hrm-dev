@@ -32,4 +32,7 @@ jobs:
           # https://github.com/actions/setup-node#caching-packages-data
           cache-dependency-path: hrm-front/package-lock.json
       - run: npm ci
+      # generate OpenAPI client
+      - run: npm run generate
       - run: npm run build
+      # TODO: add tests

@@ -4,7 +4,7 @@ services:
   hrm-api:
     container_name: hrm-api
     build:
-      context: .docker/hrm-api/dev
+      context: docker/hrm-api/dev
       dockerfile: dev.dockerFile
     ports:
       - "8080:8080"
@@ -27,7 +27,7 @@ services:
   hrm-front:
     container_name: hrm-front
     build: 
-      context: .docker/hrm-front/dev
+      context: docker/hrm-front/dev
       dockerfile: dev.dockerFile
     ports:
       - "3000:3000"

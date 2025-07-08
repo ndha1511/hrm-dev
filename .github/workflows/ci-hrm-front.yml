@@ -4,7 +4,7 @@ on:
   pull_request:
     types: [assigned]
     paths:
-      - "hrm-front/**"
+      - "./hrm-front/**"
       - ".github/workflows/ci-hrm-front.yml"
       - "!hrm-front/.vscode/**"
       - "!hrm-front/*.code-workspace"

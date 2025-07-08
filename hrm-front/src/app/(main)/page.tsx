@@ -2,10 +2,10 @@
 import BaseTextField from "@/components/inputs/TextField/BaseTextField/BaseTextField";
 import TextField from "@/components/inputs/TextField/TextField";
 import { useListPetsSuspense } from "@/generated/endpoints/petstore/petstore";
-import Box from "@mui/material/Box";
+
 import Button from "@mui/material/Button";
-import { useEffect, useState } from "react";
-import { Controller, useForm, useWatch } from "react-hook-form";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 const Home = () => {
   const query = useListPetsSuspense();
@@ -14,8 +14,6 @@ const Home = () => {
       test: "default",
     },
   });
-
-  const watch = useWatch({ control, name: "test" });
 
   const [a, setA] = useState(0);
   console.log("a", a);

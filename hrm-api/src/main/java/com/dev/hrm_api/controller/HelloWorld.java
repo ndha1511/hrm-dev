@@ -8,7 +8,7 @@ public class HelloWorld {
 
     @GetMapping("/hello")
     public String getMethodName() {
-        return "hello world";
+        return "hello world changed";
     }
 
 }

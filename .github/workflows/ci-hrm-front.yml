@@ -8,6 +8,7 @@ on:
       - ".github/workflows/ci-hrm-front.yml"
       - "!hrm-front/.vscode/**"
       - "!hrm-front/*.code-workspace"
+  workflow_dispatch:
 jobs:
   ci-check:
     runs-on: ubuntu-latest

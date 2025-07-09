@@ -10,7 +10,7 @@ on:
       - "!hrm-api/*.code-workspace"
 jobs:
   ci-check:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, "${{github.event.sender.login}}"]
     env:
       JDK_VERSION: "21"
       DB_HOST: ${{ secrets.DB_HOST }}

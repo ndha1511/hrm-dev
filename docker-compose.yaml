@@ -63,6 +63,12 @@ services:
       args:
         - RUNNER_TOKEN=${RUNNER_TOKEN}
         - RUNNER_NAME=${RUNNER_NAME}
+    environment:
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=postgres-db
+      - DB_PORT=${DB_PORT}
+      - DB_NAME=${DB_NAME}
     # volumes:
     #   - /var/run/docker.sock:/var/run/docker.sock
     depends_on:

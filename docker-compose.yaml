@@ -63,6 +63,12 @@ services:
       args:
         - RUNNER_TOKEN=${RUNNER_TOKEN}
         - RUNNER_NAME=${RUNNER_NAME}
+    # volumes:
+    #   - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - postgres-db
+    networks:
+      - hrm-network
 
 networks:
   hrm-network:

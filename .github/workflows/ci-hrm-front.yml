@@ -31,10 +31,17 @@ jobs:
           # Caching npm dependencies in monorepos
           # https://github.com/actions/setup-node#caching-packages-data
           cache-dependency-path: hrm-front/package-lock.json
-      - run: npm ci
-      # generate OpenAPI client
-      - run: npm run generate
-      # prettier and lint checks
-      - run: npm run lint
-      - run: npm run build
+
+      - name: Install npm
+        run: npm ci
+
+      - name: Generator OpenAPI client
+        run: npm run generate
+
+      - name: Pettier & Lint check
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
+
       # TODO: add tests

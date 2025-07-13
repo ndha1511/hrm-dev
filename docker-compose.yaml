@@ -5,7 +5,7 @@ services:
     container_name: hrm-api
     build:
       context: docker/hrm-api/dev
-      dockerfile: dev.dockerfile
+      dockerfile: dev.dockerFile
       args:
         - UID=${UID}
         - GID=${GID}
@@ -13,7 +13,7 @@ services:
       - "8080:8080"
     volumes:
       - ./hrm-api:/app/hrm-api
-      - m2_data:/home/pengu/.m2
+      - m2_data:/root/.m2
     environment:
       - DB_USERNAME=${DB_USERNAME}
       - DB_PASSWORD=${DB_PASSWORD}
@@ -29,7 +29,7 @@ services:
     container_name: hrm-front
     build: 
       context: docker/hrm-front/dev
-      dockerfile: dev.dockerfile
+      dockerfile: dev.dockerFile
       args:
         - UID=${UID}
         - GID=${GID}
@@ -59,7 +59,7 @@ services:
     container_name: seft-runner
     build: 
       context: docker/seft-hosted-runner
-      dockerfile: dockerfile
+      dockerfile: dockerFile
       args:
         - RUNNER_TOKEN=${RUNNER_TOKEN}
         - RUNNER_NAME=${RUNNER_NAME}

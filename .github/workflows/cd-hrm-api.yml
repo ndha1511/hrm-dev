@@ -30,4 +30,4 @@ jobs:
           context: .
           push: true
           file: docker/hrm-api/production/production.dockerfile
-          tags: ndha1511/hrm-api:latest
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/hrm-api:latest

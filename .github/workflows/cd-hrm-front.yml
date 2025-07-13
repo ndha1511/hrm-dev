@@ -30,4 +30,4 @@ jobs:
           context: .
           push: true
           file: docker/hrm-front/production/production.dockerfile
-          tags: ndha1511/hrm-front:latest
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/hrm-front:latest

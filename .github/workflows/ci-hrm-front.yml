@@ -44,4 +44,5 @@ jobs:
       - name: Build
         run: npm run build
 
-      # TODO: add tests
+      - name: Component Test Coverage
+        run: npm run coverage

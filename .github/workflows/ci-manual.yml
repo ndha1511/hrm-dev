@@ -1,0 +1,16 @@
+name: "[CI] Manual"
+
+on:
+  pull_request:
+    types: [assigned]
+  workflow_dispatch:
+jobs:
+  ci-check:
+    runs-on: [self-hosted, "${{github.event.sender.login}}"]
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0

@@ -3,9 +3,6 @@ name: "[CI] Manual"
 on:
   pull_request:
     types: [assigned]
-    paths:
-      - "!hrm-front/**"
-      - "!hrm-api/**"
   workflow_dispatch:
 jobs:
   ci-check:

@@ -46,3 +46,8 @@ jobs:
 
       - name: Component Test Coverage
         run: npm run coverage
+
+      - name: Storybook Deploy
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}

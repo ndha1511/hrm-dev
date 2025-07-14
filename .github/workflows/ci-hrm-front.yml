@@ -44,4 +44,14 @@ jobs:
       - name: Build
         run: npm run build
 
-      # TODO: add tests
+      - name: Component Test Coverage
+        run: npm run coverage
+
+      - name: Storybook Deploy
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          # https://www.chromatic.com/docs/github-actions/#run-chromatic-on-monorepos
+          workingDir: hrm-front
+          exitOnceUploaded: true
+          autoAcceptChanges: true

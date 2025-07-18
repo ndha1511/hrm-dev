@@ -5,7 +5,7 @@ import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public class User implements UserDetails {
+public class UserConfig implements UserDetails {
     private final String username;
     private final String password;
     private final Collection<? extends GrantedAuthority> authorities;
@@ -25,7 +25,7 @@ public class User implements UserDetails {
         return this.username;
     }
 
-    public User(String username, String password, Collection<? extends GrantedAuthority> authorities) {
+    public UserConfig(String username, String password, Collection<? extends GrantedAuthority> authorities) {
         this.username = username;
         this.password = password;
         this.authorities = authorities;

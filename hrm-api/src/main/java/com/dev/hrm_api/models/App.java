@@ -1,4 +1,4 @@
-package com.dev.hrm_api.schema;
+package com.dev.hrm_api.models;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ import lombok.Setter;
 @Table(name = "apps")
 public class App extends BaseEntity {
     @Column(name = "app_code", nullable = false, unique = true)
-    private Integer appCode;
+    private String appCode;
     @Column(name = "app_name", nullable = false, unique = true)
     private String appName;
     @Column(name = "app_icon", nullable = false)
@@ -28,5 +28,5 @@ public class App extends BaseEntity {
     @OneToMany(mappedBy = "app", fetch = FetchType.LAZY)
     private List<AppPerm> appPerms;
     @Column(name = "parent_app_code", nullable = true)
-    private Integer parentAppCode;
+    private String parentAppCode;
 }

@@ -1,4 +1,4 @@
-package com.dev.hrm_api.api.v1.auth;
+package com.dev.hrm_api.controllers.v1.auth;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
-@RequestMapping("${apiPrefix}/auth")
+@RequestMapping("${api-prefix}/auth")
 @RequiredArgsConstructor
 public class AuthController {
     private final AuthService authService;
@@ -23,7 +23,6 @@ public class AuthController {
         return authService.signIn(signInRequest);
     }
 
-    // Test CI check
     @PostMapping("/signUp")
     public AuthResponse signUp(@RequestBody SignUpRequest signUpRequest) throws Exception {
         return authService.signUp(signUpRequest);

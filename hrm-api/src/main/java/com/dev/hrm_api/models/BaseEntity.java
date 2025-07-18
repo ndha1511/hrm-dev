@@ -1,4 +1,4 @@
-package com.dev.hrm_api.schema;
+package com.dev.hrm_api.models;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -26,19 +26,18 @@ public abstract class BaseEntity {
     private Integer id;
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
-    @Column(name = "updated_at", nullable = false)
+    @Column(name = "updated_at", nullable = true)
     private LocalDateTime updatedAt;
     @Column(name = "is_active", nullable = false)
     private boolean isActive;
     @Column(name = "created_by", nullable = true)
     private UUID createdBy;
-    @Column(name = "modified_by")
+    @Column(name = "modified_by", nullable = true)
     private UUID modifiedBy;
 
     @PrePersist
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
-        this.updatedAt = LocalDateTime.now();
     }
 
     @PreUpdate

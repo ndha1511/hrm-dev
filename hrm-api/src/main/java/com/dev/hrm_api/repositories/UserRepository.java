@@ -9,24 +9,20 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.dev.hrm_api.dtos.user.UserPermDto;
-import com.dev.hrm_api.schema.User;
+import com.dev.hrm_api.models.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
     Optional<User> findByUsername(String username);
 
     @Query("""
-            SELECT new com.dev.hrm_api.dtos.user.UserPermDto(
-                u.username,
-                u.passwordHash,
-                ap.app.appCode,
-                p.permType
-            )
-                        FROM UserAppPerm uap
-                        JOIN uap.user u
-                        JOIN uap.appPerm ap
-                        JOIN ap.perm p
-                        WHERE u.username = :username AND u.isActive = true
-                    """)
+               SELECT new com.dev.hrm_api.dtos.user.UserPermDto(ap.appCode, SUM(p.permValue))
+               FROM UserAppPerm uap
+               JOIN uap.appPerm ap
+               JOIN ap.perm p
+               JOIN uap.user u
+               WHERE u.username = :username
+               GROUP BY ap.appCode
+            """)
     List<UserPermDto> findRawPermsByUsername(@Param("username") String username);
 }

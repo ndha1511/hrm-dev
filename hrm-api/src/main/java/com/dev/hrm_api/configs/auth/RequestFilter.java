@@ -2,6 +2,7 @@ package com.dev.hrm_api.configs.auth;
 
 import java.io.IOException;
 
+import org.springframework.lang.NonNull;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -25,7 +26,8 @@ public class RequestFilter extends OncePerRequestFilter {
     private final UserDetailsService userDetailsService;
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+    protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response,
+            @NonNull FilterChain filterChain)
             throws ServletException, IOException {
         final String header = request.getHeader("Authorization");
 
@@ -35,7 +37,7 @@ public class RequestFilter extends OncePerRequestFilter {
         }
 
         final String token = header.substring(7);
-        String username = jwtService.extractUsername(header);
+        String username = jwtService.extractUsername(token);
 
         // Check username and authentication
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {

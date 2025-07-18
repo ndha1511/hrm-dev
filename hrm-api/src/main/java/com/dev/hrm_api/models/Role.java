@@ -1,13 +1,9 @@
-package com.dev.hrm_api.schema;
+package com.dev.hrm_api.models;
 
 import java.util.List;
 
-import com.dev.hrm_api.schema.enums.PermEnum;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,19 +16,20 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
+@Table(name = "roles")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "perms")
-public class Perm {
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "perm_type", nullable = false, unique = true)
-    @Enumerated(value = EnumType.STRING)
-    private PermEnum permType;
-    @OneToMany(mappedBy = "perm", fetch = FetchType.LAZY)
-    private List<AppPerm> appPerms;
+    @Column(name = "role_name", nullable = false)
+    private String roleName;
+    @OneToMany(mappedBy = "role", fetch = FetchType.LAZY)
+    private List<UserRole> userRoles;
+    @OneToMany(mappedBy = "role", fetch = FetchType.LAZY)
+    private List<RoleAppPerm> roleAppPerms;
 
 }

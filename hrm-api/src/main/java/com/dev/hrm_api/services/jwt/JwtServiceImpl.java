@@ -3,7 +3,6 @@ package com.dev.hrm_api.services.jwt;
 import java.security.Key;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 import java.util.function.Function;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -19,7 +18,7 @@ import io.jsonwebtoken.security.Keys;
 @Service
 public class JwtServiceImpl implements JwtService {
 
-    @Value("${jwt.expiryDate}")
+    @Value("${jwt.expiry-date}")
     private long expiryDate;
     @Value("${jwt.secret}")
     private String secret;
@@ -30,9 +29,6 @@ public class JwtServiceImpl implements JwtService {
                 .setSubject(userDetails.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + (1000 * expiryDate)))
-                // Setting custom claims for authorities
-                .setClaims(Map.of("authorities", userDetails.getAuthorities().stream()
-                        .map(auth -> auth.getAuthority()).toList()))
                 .signWith(getSignKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
@@ -50,7 +46,16 @@ public class JwtServiceImpl implements JwtService {
 
     @Override
     public List<String> extractAuthorities(String token) {
-        return extractClaim(token, claims -> claims.get("authorities", List.class));
+        return extractClaim(token, claims -> {
+            Object authoritiesObj = claims.get("authorities");
+            if (authoritiesObj instanceof List<?>) {
+                return ((List<?>) authoritiesObj).stream()
+                        .filter(String.class::isInstance)
+                        .map(String.class::cast)
+                        .toList();
+            }
+            return List.of();
+        });
     }
 
     private Key getSignKey() {

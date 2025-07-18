@@ -8,10 +8,10 @@ spring:
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: none
     show-sql: true
     database: POSTGRESQL
 jwt:
-  expiryDate: 3600
+  expiry-date: 3600
   secret: ${JWT_SECRET}
-apiPrefix: /api/v1
+api-prefix: /api/v1

@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 import com.dev.hrm_api.dtos.auth.request.SignInRequest;
 import com.dev.hrm_api.dtos.auth.request.SignUpRequest;
 import com.dev.hrm_api.dtos.auth.response.AuthResponse;
+import com.dev.hrm_api.models.User;
 import com.dev.hrm_api.repositories.UserRepository;
-import com.dev.hrm_api.schema.User;
 import com.dev.hrm_api.services.jwt.JwtService;
 import com.dev.hrm_api.services.user.UserDetailsService;
 

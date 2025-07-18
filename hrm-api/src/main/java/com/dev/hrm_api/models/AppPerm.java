@@ -1,4 +1,4 @@
-package com.dev.hrm_api.schema;
+package com.dev.hrm_api.models;
 
 import java.util.List;
 
@@ -34,5 +34,7 @@ public class AppPerm {
     private Perm perm;
     @OneToMany(mappedBy = "appPerm", fetch = FetchType.LAZY)
     private List<UserAppPerm> userAppPerms;
+    @OneToMany(mappedBy = "appPerm", fetch = FetchType.LAZY)
+    private List<RoleAppPerm> roleAppPerms;
 
 }

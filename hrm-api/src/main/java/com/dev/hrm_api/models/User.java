@@ -1,4 +1,4 @@
-package com.dev.hrm_api.schema;
+package com.dev.hrm_api.models;
 
 import java.util.List;
 import java.util.UUID;
@@ -23,7 +23,7 @@ import lombok.Setter;
 public class User extends BaseEntity {
     @Column(name = "uid", nullable = false, unique = true, columnDefinition = "UUID")
     private UUID uid;
-    @Column(name = "username", nullable = false, columnDefinition = "VARCHAR(255)")
+    @Column(name = "username", nullable = false, unique = true, columnDefinition = "VARCHAR(255)")
     private String username;
     @Column(name = "full_name", nullable = false, columnDefinition = "VARCHAR(255)")
     private String fullName;
@@ -35,5 +35,7 @@ public class User extends BaseEntity {
     private String phoneNumber;
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<UserAppPerm> userAppPerms;
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<UserRole> userRoles;
 
 }

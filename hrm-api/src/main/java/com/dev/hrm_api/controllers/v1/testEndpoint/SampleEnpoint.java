@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class SampleEnpoint {
 
     @GetMapping("/test")
-    @PreAuthorize("hasAnyAuthority('manage:1001', 'view:1001', 'admin:1001')")
+    @PreAuthorize("hasAnyAuthority('edit:payroll')")
     public String getMethodName() {
         return "OK";
     }

@@ -1,7 +1,5 @@
 package com.dev.hrm_api.services.jwt;
 
-import java.util.List;
-
 import org.springframework.security.core.userdetails.UserDetails;
 
 public interface JwtService {
@@ -29,13 +27,5 @@ public interface JwtService {
      * @return true if the token is valid, false otherwise
      */
     boolean isTokenValid(String token, UserDetails userDetails);
-
-    /**
-     * Extracts the authorities from the given JWT token.
-     * 
-     * @param token the JWT token from which to extract authorities
-     * @return a list of authorities extracted from the token
-     */
-    List<String> extractAuthorities(String token);
 
 }

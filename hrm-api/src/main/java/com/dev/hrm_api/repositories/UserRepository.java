@@ -16,13 +16,12 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     Optional<User> findByUsername(String username);
 
     @Query("""
-               SELECT new com.dev.hrm_api.dtos.user.UserPermDto(ap.appCode, SUM(p.permValue))
+               SELECT new com.dev.hrm_api.dtos.user.UserPermDto(ap.app.appCode, p.permValue)
                FROM UserAppPerm uap
                JOIN uap.appPerm ap
                JOIN ap.perm p
                JOIN uap.user u
                WHERE u.username = :username
-               GROUP BY ap.appCode
             """)
     List<UserPermDto> findRawPermsByUsername(@Param("username") String username);
 }

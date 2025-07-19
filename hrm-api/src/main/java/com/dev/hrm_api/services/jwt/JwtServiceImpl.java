@@ -2,7 +2,6 @@ package com.dev.hrm_api.services.jwt;
 
 import java.security.Key;
 import java.util.Date;
-import java.util.List;
 import java.util.function.Function;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -42,20 +41,6 @@ public class JwtServiceImpl implements JwtService {
     public boolean isTokenValid(String token, UserDetails userDetails) {
         final String username = extractUsername(token);
         return username.equals(userDetails.getUsername());
-    }
-
-    @Override
-    public List<String> extractAuthorities(String token) {
-        return extractClaim(token, claims -> {
-            Object authoritiesObj = claims.get("authorities");
-            if (authoritiesObj instanceof List<?>) {
-                return ((List<?>) authoritiesObj).stream()
-                        .filter(String.class::isInstance)
-                        .map(String.class::cast)
-                        .toList();
-            }
-            return List.of();
-        });
     }
 
     private Key getSignKey() {

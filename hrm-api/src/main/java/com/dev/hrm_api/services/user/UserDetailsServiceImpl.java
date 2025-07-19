@@ -6,6 +6,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.dev.hrm_api.configs.auth.UserConfig;
 import com.dev.hrm_api.dtos.user.UserPermDto;
@@ -21,6 +22,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         private final UserRepository userRepository;
 
         @Override
+        @Transactional(readOnly = true)
         public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
                 User user = userRepository.findByUsername(username)
                                 .orElseThrow(() -> new UsernameNotFoundException(
@@ -32,9 +34,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                                 user.getPasswordHash(),
                                 userPerms.stream()
                                                 .map(perm -> new SimpleGrantedAuthority(
-                                                                // Permission example: "READ:appCode"
+                                                                // Permission example: "view:appCode"
                                                                 new StringBuilder()
-                                                                                .append(perm.getPassword())
+                                                                                .append(perm.getPerm().getValue())
                                                                                 .append(":")
                                                                                 .append(perm.getAppCode()).toString()
                                                                                 .toLowerCase()))

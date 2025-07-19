@@ -26,15 +26,13 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           "& .MuiOutlinedInput-root": {
-            borderRadius: "24px",
-          },
-          "& .MuiInputBase-input": {
-            padding: "6px 16px",
+            borderRadius: "48px",
           },
         },
       },
       defaultProps: {
         variant: "outlined",
+        size: "small",
       },
     },
   },

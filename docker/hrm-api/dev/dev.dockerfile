@@ -8,6 +8,8 @@ RUN groupadd -g ${GID} appgroup && \
 
 ENV HOME=/home/pengu
 
+RUN mkdir -p /home/pengu/.m2 && chown -R pengu:appgroup /home/pengu
+
 
 WORKDIR /app/hrm-api/
 

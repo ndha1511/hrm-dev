@@ -9,8 +9,8 @@ echo "Starting Docker Compose services..."
 
 dockerComand="docker compose"
 
-${dockerComand} down
+${dockerComand} down hrm-api postgres-db 
 
-${dockerComand} -f "$DOCKER_COMPOSE_FILE" up -d postgres-db
+${dockerComand} -f "$DOCKER_COMPOSE_FILE" up -d postgres-db postgres-admin
 
 ${dockerComand} -f "$DOCKER_COMPOSE_FILE" up hrm-api

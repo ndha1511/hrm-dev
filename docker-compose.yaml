@@ -11,13 +11,14 @@ services:
       - "8080:8080"
     volumes:
       - ./hrm-api:/app/hrm-api
-      - m2_data:/app/.m2
+      - m2_data:/home/pengu/.m2
     environment:
       - DB_USERNAME=${DB_USERNAME}
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_HOST=postgres-db
       - DB_PORT=${DB_PORT}
       - DB_NAME=${DB_NAME}
+      - JWT_SECRET=${JWT_SECRET}
     depends_on:
       - postgres-db
     networks:
@@ -37,7 +38,22 @@ services:
       - ./hrm-front:/app/hrm-front
     networks:
       - hrm-network
-
+      
+  postgres-admin:
+    container_name: postgres-admin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    ports:
+      - "5050:80"
+    networks:
+      - hrm-network
+    restart: unless-stopped
+  
   postgres-db:
     container_name: postgres-db
     image: postgres
@@ -74,6 +90,7 @@ services:
     networks:
       - hrm-network
 
+
 networks:
   hrm-network:
     driver: bridge
@@ -81,6 +98,7 @@ volumes:
   pg_data: # maven dependency cache
 
   m2_data:
+  pgadmin:
 
     # docker compose down containername -v -- down and remove volumes
     # docker compose up -d -- build -- build and run in detached mode
